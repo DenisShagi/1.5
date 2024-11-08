@@ -1,0 +1,186 @@
+@font-face {
+    font-family: "TT Lakes";
+    src: url(../assets/TTLakes/TTLakes-Bold.ttf);
+}
+
+@font-face {
+    font-family: "TT Lakes Light";
+    src: url(../assets/TTLakes/TTLakes-Light.ttf);
+}
+
+@font-face {
+    font-family: "TT Lakes Medium";
+    src: url(../assets/TTLakes/TTLakes-Medium.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body{
+    background-color:#F8F8F8;
+}
+.main__description_btn{
+    display: none;
+}
+.dropdown{
+    box-sizing: border-box;
+    width: 40px; 
+    height: 40px; 
+    /* margin-right: 16px; */
+    border-radius: 50%; 
+    border: 2px #FF3E79 solid;
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; 
+}
+.arrow {
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #FF3E79!important; /* Исправлено */
+    border-right: 2px solid #FF3E79!important; /* Исправлено */
+    margin: 16px 0 0 10px;
+    transform: rotate(45deg);
+    display: inline-block!important;
+    transition: 1s;
+    margin: -1px 0 0 -1px;
+}
+.brands__title {
+    background-image: linear-gradient(270deg, #fff 0%, #f8f8f8 98.61%);
+    margin-bottom: 24px;
+    width: 102%;
+    font-family: "TT Lakes Light", serif;
+    padding: 16px 0 12px 0;
+    color: #7e7e82;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+   
+
+
+.swiper-slide{
+    display: flex;
+    flex: 0 0 180px;
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
+    border: 1px solid #eaeaea;
+    padding: 12px 16px;
+    border-radius: 6px;
+    background: #ffffff;
+}
+.container {
+    min-width: 320px;
+    min-height: 234px;
+    margin: 0 auto;
+    background: #f8f8f8;
+    padding: 24px;
+}
+.mySwiper .swiper-pagination {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; 
+    bottom: 9px;
+}
+.swiper.mySwiper.swiper-initialized.swiper-horizontal.swiper-android {
+    height: 111px
+}
+
+.mySwiper .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: #DDDDDD; /* Цвет неактивного пагинатора */
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+    background: #B5B6BC; /* Цвет активного пагинатора */
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 768px;
+        min-height: 322px;
+    }
+    .swiper-pagination{
+        display: none;
+    }
+    
+
+    .brands__title {
+        width: 103%;
+    }
+
+    .brands__item {
+        flex: 0 0 185px;
+    }
+    .brands__list {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 16px;
+        column-gap: 24px;
+       
+    }
+
+    .brands__list div:nth-child(7),
+    .brands__list div:nth-child(8),
+    .brands__list div:nth-child(9),
+    .brands__list div:nth-child(10),
+    .brands__list div:nth-child(11) {
+        display: none;
+    }
+    .main__description_btn{
+        background-color: #F8F8F8;
+        display: flex!important;
+        align-items: center;
+        border: none; 
+        cursor: pointer;
+        font-family: "TT Lakes Medium", serif;
+        font-size: 16px;
+        margin-top: 24px;
+    }
+    .main__description_btn::before {
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-image: var(--bg-image, url('image/ic/ic/вниз.svg'));
+        background-size: 8px 11px; 
+        background-repeat: no-repeat; 
+        margin-right: 7px; 
+        background-position: center; 
+    }    
+    .swiper.mySwiper.swiper-initialized.swiper-horizontal.swiper-android {
+        height: auto;
+    }
+    
+}
+@media (min-width: 1120px) {
+    
+    .container {
+        width: 1120px;
+        min-height: 412px;
+    }
+    .brands__item {
+        flex: 0 0 205px;
+        
+    }
+    
+    .brands__list div:nth-child(7),
+    .brands__list div:nth-child(8) {
+        display: flex;
+    }
+    .brands__list div:nth-child(9),
+    .brands__list div:nth-child(11),
+    .brands__list div:nth-child(12) {
+       display: none;
+    }
+}
