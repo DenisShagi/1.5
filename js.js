@@ -29,49 +29,39 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-const mobile = window.matchMedia("(min-width: 0) and (max-width: 767px)");
 const tablet = window.matchMedia("(min-width: 768px) and (max-width: 1119px)");
 const desktop = window.matchMedia("(min-width: 1120px)");
-const brandsTablet = document.querySelectorAll(".brands__list div:nth-last-child(-n + 5)");
-const brandsDesktop = document.querySelectorAll(".brands__list div:nth-last-child(-n + 3)");
+const brandsTablet = document.querySelectorAll(".brands__list > .brands__item.swiper-slide:nth-last-child(-n + 5)");
+const brandsDesktop = document.querySelectorAll(".brands__list > .brands__item.swiper-slide:nth-last-child(-n + 3)");
 const showAllButton = document.querySelector(".main__description_btn");
 
 let isExpanded = false; // Флаг для отслеживания состояния отображения слайдов
 
 showAllButton.addEventListener("click", () => {
-    if (!isExpanded) {
-        if (tablet.matches) {
-            brandsTablet.forEach((button) => {
-                button.style.display = "flex";
-            });
-        }
-        if (desktop.matches) {
-            brandsDesktop.forEach((button) => {
-                button.style.display = "flex";
-            });
-        }
-        showAllButton.textContent = "Скрыть"; 
-        showAllButton.style.setProperty('--bg-image', 'url("image/ic/ic/верх.svg")');
+    const elementsToToggle = tablet.matches
+        ? brandsTablet
+        : desktop.matches
+        ? brandsDesktop
+        : [];
 
+    if (elementsToToggle.length === 0) return; // Если нет элементов, ничего не делать
+
+    if (!isExpanded) {
+        elementsToToggle.forEach((button) => {
+            button.classList.add("show");
+            button.classList.remove("hide");
+        });
+        showAllButton.textContent = "Скрыть";
+        showAllButton.style.setProperty('--bg-image', 'url("image/ic/ic/верх.svg")');
     } else {
-        if (tablet.matches) {
-            brandsTablet.forEach((button) => {
-                if (button.style.display === "flex") {
-                    button.style.display = "none";
-                }
-            });
-        }
-        if (desktop.matches) {
-            brandsDesktop.forEach((button) => {
-                if (button.style.display === "flex") {
-                    button.style.display = "none";
-                }
-            });
-        }
-        showAllButton.textContent = "Показать все"; 
+        elementsToToggle.forEach((button) => {
+            button.classList.add("hide");
+            button.classList.remove("show");
+        });
+        showAllButton.textContent = "Показать все";
         showAllButton.style.setProperty('--bg-image', 'url("image/ic/ic/вниз.svg")');
     }
-    isExpanded = !isExpanded; 
+    isExpanded = !isExpanded;
 });
-showAllButton.style.backgroundRepeat = "no-repeat"
 
+showAllButton.style.backgroundRepeat = "no-repeat";

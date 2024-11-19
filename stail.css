@@ -33,7 +33,7 @@ body{
     /* margin-right: 16px; */
     border-radius: 50%; 
     border: 2px #FF3E79 solid;
-    display: flex!important;
+    display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer; 
@@ -41,11 +41,11 @@ body{
 .arrow {
     width: 8px;
     height: 8px;
-    border-top: 2px solid #FF3E79!important; /* Исправлено */
-    border-right: 2px solid #FF3E79!important; /* Исправлено */
+    border-top: 2px solid #FF3E79; /* Исправлено */
+    border-right: 2px solid #FF3E79; /* Исправлено */
     margin: 16px 0 0 10px;
     transform: rotate(45deg);
-    display: inline-block!important;
+    display: inline-block;
     transition: 1s;
     margin: -1px 0 0 -1px;
 }
@@ -59,6 +59,7 @@ body{
     font-size: 16px;
     text-transform: uppercase;
     font-weight: 400;
+    border-top: 1px solid rgb(217, 255, 245);
 }
    
 
@@ -86,7 +87,6 @@ body{
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000; 
-    bottom: 9px;
 }
 .swiper.mySwiper.swiper-initialized.swiper-horizontal.swiper-android {
     height: 111px
@@ -183,4 +183,12 @@ body{
     .brands__list div:nth-child(12) {
        display: none;
     }
+}
+
+.brands__item.swiper-slide.show {
+    display: flex ;
+}
+
+.brands__item.swiper-slide.hide {
+    display: none ;
 }
